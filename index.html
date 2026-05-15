@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Checkpoint</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="User profiles">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">$</div>
+          <div>
+            <p class="eyebrow">Shared tracker</p>
+            <h1>Money Checkpoint</h1>
+          </div>
+        </div>
+        <div id="userTabs" class="user-tabs" role="tablist" aria-label="Users"></div>
+        <section class="month-card">
+          <p class="eyebrow">This month</p>
+          <strong id="monthLabel"></strong>
+          <span id="monthSummary"></span>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="activeUserLabel"></p>
+            <h2 id="activeUserTitle"></h2>
+          </div>
+          <button id="resetDemo" class="ghost-button" type="button" title="Reset demo data">
+            <span aria-hidden="true">↺</span>
+            Reset
+          </button>
+        </header>
+
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Cashflow status</p>
+            <h3 id="cashflowTitle"></h3>
+            <p id="cashflowDetail"></p>
+          </div>
+          <div class="calendar-strip" id="calendarStrip" aria-label="Upcoming charges"></div>
+        </section>
+
+        <section class="grid">
+          <article class="panel expense-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Weekly logging</p>
+                <h3>Expense Check-In</h3>
+              </div>
+              <strong id="weeklyTotal"></strong>
+            </div>
+            <form id="expenseForm" class="entry-form">
+              <label>
+                Week
+                <select id="expenseWeek"></select>
+              </label>
+              <label>
+                Category
+                <select id="expenseCategory">
+                  <option>Groceries</option>
+                  <option>Eating out</option>
+                  <option>Transport</option>
+                  <option>Shopping</option>
+                  <option>Entertainment</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label>
+                Amount
+                <input id="expenseAmount" type="number" min="0" step="0.01" placeholder="0.00" />
+              </label>
+              <button type="submit">Add</button>
+            </form>
+            <div id="weeklyBars" class="weekly-bars"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Different charge dates</p>
+                <h3>Subscriptions</h3>
+              </div>
+              <strong id="subscriptionTotal"></strong>
+            </div>
+            <div id="subscriptionList" class="stack-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Manual payments</p>
+                <h3>Bill Checklist</h3>
+              </div>
+              <strong id="billStatus"></strong>
+            </div>
+            <div id="billList" class="stack-list"></div>
+          </article>
+
+          <article class="panel savings-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Laptop fund</p>
+                <h3>Savings Goal</h3>
+              </div>
+              <strong id="savingsPercent"></strong>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-ring" id="progressRing">
+                <span id="progressAmount"></span>
+              </div>
+              <div>
+                <p id="goalLine"></p>
+                <form id="savingsForm" class="savings-form">
+                  <label>
+                    Add savings
+                    <input id="savingsAmount" type="number" min="0" step="0.01" placeholder="50.00" />
+                  </label>
+                  <button type="submit">Add</button>
+                </form>
+                <button id="protectSavings" class="protect-button" type="button">Mark laptop money protected</button>
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
